@@ -10,7 +10,7 @@
 <h2>Sectors</h2>
 
 <ul>
-  <% @race.sectors.each do |sector| %>
+  <% @race.sectors.by_name.each do |sector| %>
     <li><%= link_to sector.name, sector %></li>
   <% end %>
 </ul>

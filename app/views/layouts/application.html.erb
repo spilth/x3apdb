@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>X3apdb</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <style>
-    table.sector td {
-      text-align: center;
-      padding: 0.5em;
-      width: 96px;
-      height: 96px;
-      border: 1px solid #ccc;
-    }
-  </style>
+  <head>
+    <title>X3: Albion Prelude Database</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">X3:AP Database</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/races/">Races</a></li>
+              <li><a href="/sectors/">Sectors</a></li>
+              <li><a href="/stations/">Stations</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
-</head>
-<body>
+    <div class="container">
+      <%= yield %>
+    </div>
 
-<%= yield %>
-
-</body>
+  </body>
 </html>

@@ -25,7 +25,7 @@
 <h2>Stations</h2>
 
 <ul>
-  <% @sector.stations.each do |station| %>
+  <% @sector.stations.by_name.each do |station| %>
     <li><%= link_to station.name, station %></li>
   <% end %>
 </ul>

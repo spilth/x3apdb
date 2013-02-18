@@ -2,7 +2,7 @@ class StationsController < ApplicationController
   # GET /stations
   # GET /stations.json
   def index
-    @stations = Station.all
+    @stations = Station.by_name
 
     respond_to do |format|
       format.html # index.html.erb

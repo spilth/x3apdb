@@ -1,23 +1,22 @@
-<h1>Listing sectors</h1>
+<h1>Sectors</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Race</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @sectors.each do |sector| %>
-  <tr>
-    <td><%= sector.name %></td>
-    <td><%= sector.race.name %></td>
-    <td><%= link_to 'Show', sector %></td>
-    <td><%= link_to 'Edit', edit_sector_path(sector) %></td>
-    <td><%= link_to 'Destroy', sector, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<table class="table table-bordered table-condensed table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Race</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sectors.each do |sector| %>
+      <tr>
+        <td><%= link_to sector.name, sector %></td>
+        <td><%= link_to sector.race.name, sector.race %></td>
+        <td><%= link_to 'Edit', edit_sector_path(sector) %> <%= link_to 'Destroy', sector, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br />

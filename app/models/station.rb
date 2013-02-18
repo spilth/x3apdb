@@ -4,4 +4,6 @@ class Station < ActiveRecord::Base
 
   validates :name, :presence => true
   validates :sector, :presence => true
+  
+  scope :by_name, order(:name)
 end
