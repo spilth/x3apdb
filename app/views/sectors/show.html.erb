@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sector: <%= @sector.name %> (<%= link_to @sector.race.name, @sector.race %>)</h1>
+
+<h2>Neighboring Sectors</h2>
+
+<table class="sector">
+  <tr>
+    <td></td>
+    <td><%= link_to_unless @sector.north_sector.nil?, @sector.north_sector, @sector.north_sector %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><%= link_to_unless @sector.west_sector.nil?, @sector.west_sector, @sector.west_sector %></td>
+    <td><%= @sector.name %></td>
+    <td><%= link_to_unless @sector.east_sector.nil?, @sector.east_sector, @sector.east_sector %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= link_to_unless @sector.south_sector.nil?, @sector.south_sector, @sector.south_sector %></td>
+    <td></td>
+  </tr>
+</table>
+
+<h2>Stations</h2>
+
+<ul>
+  <% @sector.stations.each do |station| %>
+    <li><%= link_to station.name, station %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_sector_path(@sector) %> |
+<%= link_to 'Back', sectors_path %>

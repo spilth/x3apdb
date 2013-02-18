@@ -1,0 +1,63 @@
+<%= form_for(@sector) do |f| %>
+  <% if @sector.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sector.errors.count, "error") %> prohibited this sector from being saved:</h2>
+
+      <ul>
+        <% @sector.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :race %><br />
+    <%= collection_select(:sector, :race_id, Race.all, :id, :name, :prompt => true) %>
+  </div>
+
+  <table>
+    <tr>
+      <td></td>
+      <td>
+        <div class="field">
+          <%= f.label :north_sector %><br />
+          <%= collection_select(:sector, :north_sector_id, Sector.by_name, :id, :name, :prompt => true) %>
+        </div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.label :west_sector %><br />
+          <%= collection_select(:sector, :west_sector_id, Sector.by_name, :id, :name, :prompt => true) %>
+        </div>
+        <td></td>
+        <td>
+          <div class="field">
+            <%= f.label :east_sector %><br />
+            <%= collection_select(:sector, :east_sector_id, Sector.by_name, :id, :name, :prompt => true) %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div class="field">
+            <%= f.label :south_sector %><br />
+            <%= collection_select(:sector, :south_sector_id, Sector.by_name, :id, :name, :prompt => true) %>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
