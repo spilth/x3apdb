@@ -7,9 +7,9 @@ gem 'rails', '3.2.11'
 
 group :development do
   gem 'sqlite3'
-  gem 'nokogiri'
 end
 
+gem 'nokogiri'
 gem 'pg'
 
 # Gems used only for assets and not required
