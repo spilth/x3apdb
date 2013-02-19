@@ -1,0 +1,24 @@
+graph G {
+<% @sectors.each do |sector| %>
+  "<%= sector.name %>";
+
+  <% if sector.north_sector %>
+    "<%= sector.name %>" -- "<%= sector.north_sector.name %>";
+  <% end %>
+
+  <% if sector.south_sector %>
+    "<%= sector.name %>" -- "<%= sector.south_sector.name %>";
+  <% end %>
+  
+  <% if sector.east_sector %>
+    "<%= sector.name %>" -- "<%= sector.east_sector.name %>";
+  <% end %>
+
+  <% if sector.west_sector %>
+    "<%= sector.name %>" -- "<%= sector.west_sector.name %>";
+  <% end %>
+
+<% end %>
+
+}
+
